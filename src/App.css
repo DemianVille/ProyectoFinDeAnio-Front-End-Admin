@@ -1,3 +1,19 @@
 .style {
   list-style: none;
 }
+
+.productRow {
+}
+
+.infoRow {
+  background-color: rgb(228, 228, 228);
+  height: 100%;
+  padding: 12px 0;
+  border-radius: 15px 15px 0 0;
+}
+
+.productsTable {
+  border: solid 1px gray;
+  border-radius: 15px;
+  padding: 0 12px;
+}

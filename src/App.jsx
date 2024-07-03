@@ -1,23 +1,29 @@
-import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import React from "react";
-import UserInfo from "./components/UserInfo";
-import { AuthProvider } from "./components/AuthContext";
+import Dashboard from "./pages/Dashboard";
+import Products from "./pages/Products";
+import Users from "./pages/Users";
 
 const App = () => {
-  const userData = {
-    id: "",
-    name: "",
-    email: "",
-    totalSpent: "",
-  };
-
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Dashboard />,
+    },
+    {
+      path: "/productos",
+      element: <Products />,
+    },
+    {
+      path: "/usuarios",
+      element: <Users />,
+    },
+  ]);
   return (
-    <AuthProvider>
-      <div>
-        <UserInfo {...userData} />
-      </div>
-    </AuthProvider>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 };
 
