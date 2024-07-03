@@ -1,9 +1,22 @@
-.style {
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap");
+
+/* SideBar */
+
+.fontPlaywrite {
+  font-family: "Playwrite CO", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.733);
+}
+
+/* User componenet */
+
+.listStyle {
   list-style: none;
 }
 
-.productRow {
-}
+/* Products page */
 
 .infoRow {
   background-color: rgb(228, 228, 228);

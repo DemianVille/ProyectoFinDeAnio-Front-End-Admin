@@ -8,17 +8,17 @@ const UserInfo = ({ id, name, email, totalSpent }) => {
 
         <div className="d-flex flex-row justify-content-around mb-3">
           <p className="d-flex flex-column">Id</p>
-          <ul className="style">
+          <ul className="listStyle">
             <li>01 {id}</li>
           </ul>
           <p className="d-flex flex-column px-5">Nombre</p>
-          <ul className="style">
+          <ul className="listStyle">
             <li>
               Norberto Perez {name} (Norbert@prueba.com {email})
             </li>
           </ul>
           <p className="d-flex flex-column px-5">Gastado hasta ahora</p>
-          <ul className="style">
+          <ul className="listStyle">
             <li>$100{totalSpent}</li>
           </ul>
         </div>
