@@ -25,6 +25,7 @@ export default function Product({ id }) {
     };
     getProduct();
   }, []);
+  console.log(product);
 
   return (
     <>
