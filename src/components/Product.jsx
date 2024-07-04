@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 
 export default function Product({ id }) {
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState({});
+
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -17,15 +18,14 @@ export default function Product({ id }) {
           `http://localhost:3000/products/${id}`,
           options
         );
-        const product = await response.json();
-        setProduct(product);
+        const productsObject = await response.json();
+        setProduct(productsObject);
       } catch (err) {
         console.error(err);
       }
     };
     getProduct();
   }, []);
-  console.log(product);
 
   return (
     <>

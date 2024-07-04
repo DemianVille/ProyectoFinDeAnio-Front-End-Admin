@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
@@ -42,7 +41,7 @@ export default function Products() {
             <Col xs={2}></Col>
           </Row>
           {products.map((product) => {
-            return <Product id={product.id} />;
+            return <Product key={product.id} id={product.id} />;
           })}
         </div>
       </Container>
