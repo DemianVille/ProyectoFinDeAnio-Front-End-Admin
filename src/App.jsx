@@ -4,19 +4,24 @@ import React from "react";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import Users from "./pages/Users";
+import LoginAdmin from "./pages/LoginAdmin";
 
 const App = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/admin",
       element: <Dashboard />,
     },
     {
-      path: "/productos",
+      path: "/admin/login",
+      element: <LoginAdmin />,
+    },
+    {
+      path: "/admin/productos",
       element: <Products />,
     },
     {
-      path: "/usuarios",
+      path: "/admin/usuarios",
       element: <Users />,
     },
   ]);
