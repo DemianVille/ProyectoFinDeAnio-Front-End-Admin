@@ -22,6 +22,9 @@ export default function SideBar() {
           <Link to={"/admin/usuarios"} className="w-100">
             <button className="adminBtns my-3 p-2 w-100">Usuarios</button>
           </Link>
+          <Link to={"/admin/ordenes"} className="w-100">
+            <button className="adminBtns my-3 p-2 w-100">Ordenes</button>
+          </Link>
         </div>
       </div>
     </>

@@ -46,9 +46,16 @@ export default function Users() {
                 <Col xs={4}>Nombre completo</Col>
                 <Col xs={4}>Email</Col>
               </Row>
-              {users.map((user) => {
-                return <User key={user.id} id={user.id} />;
-              })}
+              {users.length === 0 ? (
+                <Row className="">
+                  <hr />
+                  <p>Lista vacía</p>
+                </Row>
+              ) : (
+                users.map((user) => {
+                  return <User key={user.id} id={user.id} />;
+                })
+              )}
             </div>
           </Container>
         </Col>

@@ -2,14 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import Product from "../components/Product";
 import SideBar from "../components/SideBar";
+import User from "../components/User";
 
-export default function Products() {
-  const [products, setProducts] = useState([]);
+export default function Orders() {
+  const [orders, setOrders] = useState([]);
   const token = useSelector((state) => state.token);
   useEffect(() => {
-    const getProducts = async () => {
+    const getOrders = async () => {
       try {
         const options = {
           method: "GET",
@@ -18,16 +18,15 @@ export default function Products() {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await fetch(`http://localhost:3000/products`, options);
-        const allProductsObject = await response.json();
-        setProducts(allProductsObject);
+        const response = await fetch(`http://localhost:3000/orders`, options);
+        const ordersList = await response.json();
+        setOrders(ordersList);
       } catch (err) {
         console.error(err);
       }
     };
-    getProducts();
+    getOrders();
   }, []);
-
   return (
     <>
       <Row className="w-100">
@@ -37,23 +36,23 @@ export default function Products() {
         <Col xs={9} lg={10}>
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
-              <h3>Productos</h3>
-              <button className="botonAgregar px-3">Agregar producto</button>
+              <h3>Dashboard</h3>
             </div>
             <div className="tables">
               <Row className="infoRow">
-                <Col xs={6}>Nombre</Col>
-                <Col xs={2}>Precio</Col>
-                <Col xs={2}>Stock</Col>
+                <Col xs={2}>Id</Col>
+                <Col xs={4}>Usuario</Col>
+                <Col xs={3}>Precio total</Col>
+                <Col xs={3}>Estado</Col>
               </Row>
-              {products.length === 0 ? (
+              {orders.length === 0 ? (
                 <Row className="">
                   <hr />
                   <p>Lista vacía</p>
                 </Row>
               ) : (
-                products.map((product) => {
-                  return <Product key={product.id} id={product.id} />;
+                orders.map((order) => {
+                  return <User key={order.id} id={order.id} />;
                 })
               )}
             </div>
