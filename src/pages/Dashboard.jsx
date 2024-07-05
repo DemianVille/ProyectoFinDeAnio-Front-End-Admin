@@ -15,8 +15,7 @@ export default function Dashboard() {
         <Col xs={9}>
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
-              <h3>Productos</h3>
-              <button className="botonesVarios">Agragar producto</button>
+              <h3>Dashboard</h3>
             </div>
             <div className="productsTable">
               <Row className="infoRow">

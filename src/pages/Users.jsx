@@ -15,8 +15,8 @@ export default function Users() {
         <Col xs={9}>
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
-              <h3>Productos</h3>
-              <button>Agragar producto</button>
+              <h3>Usuarios</h3>
+              <button className="botonAgregar">Agragar Usuario</button>
             </div>
             <div className="productsTable">
               <Row className="infoRow">
@@ -25,9 +25,9 @@ export default function Users() {
                 <Col xs={2}>Stock</Col>
                 <Col xs={2}></Col>
               </Row>
-              {products.map((product) => {
+              {/* {products.map((product) => {
                 return <div></div>;
-              })}
+              })} */}
             </div>
           </Container>
         </Col>

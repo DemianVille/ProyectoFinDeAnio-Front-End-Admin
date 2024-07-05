@@ -39,7 +39,7 @@ export default function Products() {
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
               <h3>Productos</h3>
-              <button className="botonesVarios">Agragar producto</button>
+              <button className="botonAgregar">Agregar producto</button>
             </div>
             <div className="productsTable">
               <Row className="infoRow">

@@ -52,16 +52,21 @@
 /* Error 404 - Botones */
 
 .backToHomePage:hover,
-.adminBtns:hover,
-.botonesVarios:hover {
+.adminBtns:hover {
   color: black;
   background-color: rgba(114, 221, 185, 0.568);
 }
 
+.botonesVarios:hover {
+  text-decoration: underline;
+}
+
 .backToHomePage,
 .botonesVarios {
-  color: black;
-  background-color: rgba(97, 238, 191, 0.568);
+  color: rgba(114, 221, 185, 1);
+  background-color: rgba(97, 238, 191, 0);
+  /* color: black;
+  background-color: rgba(97, 238, 191, 0.568); */
   border-radius: 0;
   border: none;
 }
@@ -75,7 +80,7 @@
 /* Products page */
 
 .infoRow {
-  background-color: rgba(97, 238, 191, 0.849);
+  background-color: rgba(97, 238, 191, 0.461);
   height: 100%;
   padding: 12px 0;
   border-radius: 15px 15px 0 0;
