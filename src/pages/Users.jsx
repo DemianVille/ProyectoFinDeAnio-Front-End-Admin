@@ -16,9 +16,9 @@ export default function Users() {
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
               <h3>Usuarios</h3>
-              <button className="botonAgregar">Agragar Usuario</button>
+              <button className="botonAgregar">Agragar usuario</button>
             </div>
-            <div className="productsTable">
+            <div className="tables">
               <Row className="infoRow">
                 <Col xs={6}>Nombre</Col>
                 <Col xs={2}>Precio</Col>
