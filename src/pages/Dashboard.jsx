@@ -16,7 +16,7 @@ export default function Dashboard() {
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
               <h3>Productos</h3>
-              <button>Agragar producto</button>
+              <button className="botonesVarios">Agragar producto</button>
             </div>
             <div className="productsTable">
               <Row className="infoRow">

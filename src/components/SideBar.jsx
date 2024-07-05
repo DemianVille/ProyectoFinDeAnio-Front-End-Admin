@@ -14,13 +14,13 @@ export default function SideBar() {
         </div>
         <div className="d-flex flex-column">
           <Link to={"/admin"} className="w-100">
-            <button className="adminBtns my-3 p-2 w-75">Dashboard</button>
+            <button className="adminBtns my-3 p-2 w-100">Dashboard</button>
           </Link>
           <Link to={"/admin/productos"} className="w-100">
-            <button className="adminBtns my-3 p-2 w-75">Productos</button>
+            <button className="adminBtns my-3 p-2 w-100">Productos</button>
           </Link>
           <Link to={"/admin/usuarios"} className="w-100">
-            <button className="adminBtns my-3 p-2 w-75">Usuarios</button>
+            <button className="adminBtns my-3 p-2 w-100">Usuarios</button>
           </Link>
         </div>
       </div>
