@@ -40,7 +40,7 @@ export default function Users() {
               <h3>Usuarios</h3>
               <button className="botonAgregar">Agregar producto</button>
             </div>
-            <div className="productsTable">
+            <div className="tables">
               <Row className="infoRow">
                 <Col xs={3}>Id</Col>
                 <Col xs={4}>Nombre completo</Col>

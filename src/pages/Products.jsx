@@ -40,7 +40,7 @@ export default function Products() {
               <h3>Productos</h3>
               <button className="botonAgregar">Agregar producto</button>
             </div>
-            <div className="productsTable">
+            <div className="tables">
               <Row className="infoRow">
                 <Col xs={6}>Nombre</Col>
                 <Col xs={2}>Precio</Col>

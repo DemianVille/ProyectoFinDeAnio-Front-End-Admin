@@ -17,7 +17,7 @@ export default function Dashboard() {
             <div className="d-flex justify-content-between my-5">
               <h3>Dashboard</h3>
             </div>
-            <div className="productsTable">
+            <div className="tables">
               <Row className="infoRow">
                 <Col xs={6}>Nombre</Col>
                 <Col xs={2}>Precio</Col>

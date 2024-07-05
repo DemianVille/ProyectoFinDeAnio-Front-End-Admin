@@ -35,7 +35,7 @@ export default function Product({ id }) {
         <Col xs={2}>{product.price}</Col>
         <Col xs={2}>{product.stock}</Col>
         <Col xs={2}>
-          <button className="botonesVarios">Editar</button>
+          <button className="botonEdit">Editar</button>
         </Col>
       </Row>
     </>
