@@ -9,10 +9,10 @@ export default function Dashboard() {
   return (
     <>
       <Row>
-        <Col xs={4}>
+        <Col xs={3}>
           <SideBar />
         </Col>
-        <Col xs={8}>
+        <Col xs={9}>
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
               <h3>Productos</h3>

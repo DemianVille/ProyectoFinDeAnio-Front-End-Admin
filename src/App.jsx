@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import Users from "./pages/Users";
 import LoginAdmin from "./pages/LoginAdmin";
+import Error404 from "./components/Error404";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const App = () => {
     {
       path: "/admin/usuarios",
       element: <Users />,
+    },
+    {
+      path: "*",
+      element: <Error404 />,
     },
   ]);
   return (

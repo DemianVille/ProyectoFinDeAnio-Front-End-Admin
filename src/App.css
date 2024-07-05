@@ -6,6 +6,25 @@
 
 /* SideBar */
 
+.logoInfo {
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 0;
+}
+
+.logotipo {
+  width: 4rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px 0 0;
+}
+
+.logoImg {
+  width: 145%;
+}
+
 .fontPlaywrite {
   font-family: "Playwrite CO", cursive;
   font-optical-sizing: auto;
@@ -17,6 +36,32 @@
 .sideBar {
   background-color: rgba(97, 238, 191, 0.849);
   height: 100%;
+}
+
+.adminBtns:hover {
+  color: black;
+  background-color: rgba(114, 221, 185, 0.568);
+  border-radius: 15px;
+}
+
+.adminBtns {
+  color: black;
+  background-color: rgba(97, 238, 191, 0);
+  border: none;
+}
+
+/* Error 404 - Botones */
+
+.backToHomePage:hover {
+  color: black;
+  background-color: rgba(114, 221, 185, 0.568);
+}
+
+.backToHomePage {
+  color: black;
+  background-color: rgba(97, 238, 191, 0.568);
+  border-radius: 0;
+  border: none;
 }
 
 /* User componenet */
