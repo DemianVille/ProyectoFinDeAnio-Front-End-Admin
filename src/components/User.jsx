@@ -1,30 +1,45 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { Row, Col } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+export default function user({ id }) {
+  const [user, setUser] = useState({});
+  const token = useSelector((state) => state.token);
 
-const UserInfo = ({ id, name, email, totalSpent }) => {
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const options = {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const response = await fetch(
+          `http://localhost:3000/users/${id}`,
+          options
+        );
+        const userObjet = await response.json();
+        setUser(userObjet);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getUser();
+  }, []);
+
   return (
-    <div className="container">
-      <div className="">
-        <h4>Información del usuario</h4>
-
-        <div className="d-flex flex-row justify-content-around mb-3">
-          <p className="d-flex flex-column">Id</p>
-          <ul className="listStyle">
-            <li>01 {id}</li>
-          </ul>
-          <p className="d-flex flex-column px-5">Nombre</p>
-          <ul className="listStyle">
-            <li>
-              Norberto Perez {name} (Norbert@prueba.com {email})
-            </li>
-          </ul>
-          <p className="d-flex flex-column px-5">Gastado hasta ahora</p>
-          <ul className="listStyle">
-            <li>$100{totalSpent}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <>
+      <Row className="productRow">
+        <hr />
+        <Col xs={3}>{user.id}</Col>
+        <Col xs={4}>{`${user.firstname} ${user.lastname}`}</Col>
+        <Col xs={3}>{user.email}</Col>
+        <Col xs={2}>
+          <button className="botonesVarios">Editar</button>
+        </Col>
+      </Row>
+    </>
   );
-};
-
-export default UserInfo;
+}

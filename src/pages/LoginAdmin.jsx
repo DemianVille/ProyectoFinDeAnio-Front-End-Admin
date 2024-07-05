@@ -33,7 +33,7 @@ export default function LoginAdmin() {
 
       const response = await axios(`http://localhost:3000/tokens`, options);
       if (response.data.admin) {
-        dispatch(createToken(response.data));
+        dispatch(createToken(response.data.token));
         navigate("/admin");
       } else {
         setMsg(response.data.message);
@@ -42,7 +42,6 @@ export default function LoginAdmin() {
       console.error(err);
     }
   };
-  console.log(token);
 
   return (
     <>

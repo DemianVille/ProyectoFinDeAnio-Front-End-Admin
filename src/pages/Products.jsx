@@ -7,7 +7,7 @@ import SideBar from "../components/SideBar";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
-  const token = useSelector((state) => state.token);
+  const token = useSelector((state) => state.token.token);
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -15,8 +15,7 @@ export default function Products() {
           method: "GET",
           headers: {
             accept: "application/json",
-            /*      Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOGEzZDhjOGZlMjRlNzlkMmJjN2IyZjYyMmRlMDU2MyIsInN1YiI6IjY2NDUzYmFhYTE3ZjJiYzVkNjJkNzc1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.C6hY6n2PKJhRMxLnv2n0Fp57fvRLTtX3bsEW_ipnANE", */
+            Authorization: { token },
           },
         };
         const response = await fetch(`http://localhost:3000/products`, options);
