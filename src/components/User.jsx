@@ -31,13 +31,13 @@ export default function user({ id }) {
 
   return (
     <>
-      <Row className="productRow">
+      <Row className="usersRow">
         <hr />
-        <Col xs={3}>{user.id}</Col>
+        <Col xs={2}>{user.id}</Col>
         <Col xs={4}>{`${user.firstname} ${user.lastname}`}</Col>
-        <Col xs={3}>{user.email}</Col>
-        <Col xs={2}>
-          <button className="botonesVarios">Editar</button>
+        <Col xs={4}>{user.email}</Col>
+        <Col xs={2} className="d-flex">
+          <button className="botonEdit">Editar</button>
         </Col>
       </Row>
     </>

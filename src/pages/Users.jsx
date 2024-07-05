@@ -30,22 +30,21 @@ export default function Users() {
 
   return (
     <>
-      <Row>
-        <Col xs={3}>
+      <Row className="w-100">
+        <Col xs={3} lg={2}>
           <SideBar />
         </Col>
-        <Col xs={9}>
+        <Col xs={9} lg={10}>
           <Container fluid className="mb-5">
             <div className="d-flex justify-content-between my-5">
               <h3>Usuarios</h3>
-              <button className="botonAgregar">Agregar producto</button>
+              <button className="botonAgregar px-3">Agregar usuario</button>
             </div>
             <div className="tables">
               <Row className="infoRow">
-                <Col xs={3}>Id</Col>
+                <Col xs={2}>Id</Col>
                 <Col xs={4}>Nombre completo</Col>
-                <Col xs={3}>Email</Col>
-                <Col xs={2}></Col>
+                <Col xs={4}>Email</Col>
               </Row>
               {users.map((user) => {
                 return <User key={user.id} id={user.id} />;

@@ -34,7 +34,7 @@ export default function Product({ id }) {
         <Col xs={6}>{product.name}</Col>
         <Col xs={2}>{product.price}</Col>
         <Col xs={2}>{product.stock}</Col>
-        <Col xs={2}>
+        <Col xs={2} className="d-flex">
           <button className="botonEdit">Editar</button>
         </Col>
       </Row>

@@ -8,11 +8,11 @@ export default function Dashboard() {
   const token = useSelector((state) => state.token);
   return (
     <>
-      <Row>
-        <Col xs={3}>
+      <Row className="w-100">
+        <Col xs={3} lg={2}>
           <SideBar />
         </Col>
-        <Col xs={9}>
+        <Col xs={9} lg={10}>
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
               <h3>Dashboard</h3>

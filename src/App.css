@@ -12,6 +12,20 @@
   padding: 0 10px 0 0;
 }
 
+.productRow {
+  display: flex;
+  align-items: center;
+  padding: 0 0 12px 0;
+  position: relative;
+}
+
+.usersRow {
+  display: flex;
+  align-items: center;
+  padding: 0 0 12px 0;
+  position: relative;
+}
+
 .logotipo {
   width: 4rem;
   overflow: hidden;
@@ -36,7 +50,7 @@
 .sideBar {
   background-color: rgba(97, 238, 191, 0.849);
   height: 100%;
-  width: 75%;
+  width: 100%;
 }
 
 .adminBtns:focus {
@@ -75,6 +89,9 @@
   background-color: rgba(97, 238, 191, 0);
   border-radius: 0;
   border: none;
+  position: absolute;
+  right: 10px;
+  align-self: center;
 }
 
 /* User componenet */
@@ -93,7 +110,7 @@
 }
 
 .tables {
-  border: solid 1px gray;
+  border: solid 1px rgb(192, 192, 192);
   border-radius: 15px;
   padding: 0 12px;
   margin-bottom: 15px;
