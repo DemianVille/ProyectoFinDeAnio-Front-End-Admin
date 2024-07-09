@@ -6,11 +6,11 @@ export default function SideBar() {
   return (
     <>
       <div className="sideBar body">
-        <div className="logoInfo">
+        <div className="logoInfo d-flex flex-column">
           <div className="logotipo">
             <Image className="logoImg" src="/src/assets/Logo.png" alt="" />
           </div>
-          <h2 className="m-0 fontPlaywrite">Copéllia</h2>
+          <h2 className="mb-3 fontPlaywrite">Copéllia</h2>
         </div>
         <div className="d-flex flex-column">
           <Link to={"/admin"} className="w-100">
