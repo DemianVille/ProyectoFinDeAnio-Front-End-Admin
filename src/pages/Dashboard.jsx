@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import User from "../components/User";
+import NavBar from "../components/NavBar";
 
 export default function Dashboard() {
   const [orders, setOrders] = useState([]);
@@ -39,6 +40,7 @@ export default function Dashboard() {
   return (
     <>
       <Row className="w-100">
+        <NavBar />
         <Col xs={3} lg={2}>
           <SideBar />
         </Col>

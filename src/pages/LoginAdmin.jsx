@@ -11,6 +11,7 @@ export default function LoginAdmin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
+  const [admin, setAdmin] = useState({});
 
   const notify = () => {
     toast.warn("En desarrollo");
@@ -32,6 +33,7 @@ export default function LoginAdmin() {
       };
 
       const response = await axios(`http://localhost:3000/tokens`, options);
+      setAdmin(response.data.admin);
       if (response.data.admin) {
         dispatch(createToken(response.data.token));
         navigate("/admin");
@@ -77,7 +79,7 @@ export default function LoginAdmin() {
                 <Form.Check type="checkbox" label="Mantenerme conectado" />
               </Form.Group>
 
-              {msg === "This user doesn't exist." && (
+              {!admin && (
                 <div className="mb-2">
                   <span className="invalidUser p-2">
                     Correo o contraseña incorrecto
@@ -92,9 +94,7 @@ export default function LoginAdmin() {
                 Ingresar
               </button>
 
-              <Link to={"/ingresar"} onClick={notify}>
-                Olvidé mi contraseña
-              </Link>
+              <Link onClick={notify}>Olvidé mi contraseña</Link>
             </Form>
           </Col>
         </Row>

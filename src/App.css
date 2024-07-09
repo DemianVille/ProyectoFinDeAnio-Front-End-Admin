@@ -4,6 +4,14 @@
   min-height: 100vh;
 }
 
+/* NavBar */
+
+.navShadow {
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
 /* SideBar */
 
 .logoInfo {

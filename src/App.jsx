@@ -8,6 +8,8 @@ import LoginAdmin from "./pages/LoginAdmin";
 import Error404 from "./components/Error404";
 import Orders from "./pages/Orders";
 import ProductInfo from "./pages/ProductInfo";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const App = () => {
   const router = createBrowserRouter([
