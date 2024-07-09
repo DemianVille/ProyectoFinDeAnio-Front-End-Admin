@@ -2,12 +2,21 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import User from "../components/User";
 
 export default function Dashboard() {
   const [orders, setOrders] = useState([]);
   const token = useSelector((state) => state.token);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/admin/login");
+    }
+  }, []);
+
   useEffect(() => {
     const getOrders = async () => {
       try {

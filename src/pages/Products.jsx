@@ -2,12 +2,21 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Product from "../components/Product";
 import SideBar from "../components/SideBar";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
   const token = useSelector((state) => state.token);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/admin/login");
+    }
+  }, []);
+
   useEffect(() => {
     const getProducts = async () => {
       try {

@@ -48,7 +48,7 @@ export default function LoginAdmin() {
       <Container className="body">
         <Row className="d-flex justify-content-center">
           <Col md={4}>
-            <h2 className="text-center my-3">Ingresar</h2>
+            <h2 className="text-center my-3">Ingresar como administrador</h2>
             <Form
               onSubmit={(event) => {
                 event.preventDefault();
@@ -59,7 +59,7 @@ export default function LoginAdmin() {
                 <Form.Label>Correo</Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder="ejemplo@gmail.com"
+                  placeholder="admin@admin.uy"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </Form.Group>
@@ -68,7 +68,7 @@ export default function LoginAdmin() {
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="1234abcd"
+                  placeholder="123"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>

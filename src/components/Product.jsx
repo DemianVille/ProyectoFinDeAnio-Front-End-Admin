@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Product({ id }) {
   const [product, setProduct] = useState({});
@@ -35,7 +36,9 @@ export default function Product({ id }) {
         <Col xs={2}>{product.price}</Col>
         <Col xs={2}>{product.stock}</Col>
         <Col xs={2} className="d-flex">
-          <button className="botonEdit">Editar</button>
+          <Link to={`/admin/productos/${product.id}`}>
+            <button className="botonEdit">Editar</button>
+          </Link>
         </Col>
       </Row>
     </>

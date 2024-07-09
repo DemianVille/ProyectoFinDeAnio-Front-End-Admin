@@ -7,6 +7,7 @@ import Users from "./pages/Users";
 import LoginAdmin from "./pages/LoginAdmin";
 import Error404 from "./components/Error404";
 import Orders from "./pages/Orders";
+import ProductInfo from "./pages/ProductInfo";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const App = () => {
     {
       path: "/admin/ordenes",
       element: <Orders />,
+    },
+    {
+      path: "/admin/productos/:id",
+      element: <ProductInfo />,
     },
     {
       path: "*",

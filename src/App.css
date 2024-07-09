@@ -165,3 +165,42 @@
 .alineado {
   flex-wrap: wrap;
 }
+
+/* edit */
+
+.editBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.returnToDashboard {
+  border: none;
+  padding: 20px 20px 20px 0;
+  background-color: transparent;
+  color: #3b3b3b;
+  border-radius: 0;
+  transition: all 0.2s ease-in-out;
+}
+.returnToDashboard:hover {
+  border: none;
+  padding: 20px 20px 20px 0;
+  background-color: transparent;
+  color: #000;
+  border-radius: 0;
+}
+
+.confirmEdit {
+  background-color: #000;
+  border-radius: 0;
+  color: white;
+  border: none;
+  padding: 20px;
+  transition: all 0.2s ease-in-out;
+}
+.confirmEdit:hover {
+  background-color: #131313;
+  border-radius: 0;
+  color: white;
+  border: none;
+  padding: 20px;
+}
