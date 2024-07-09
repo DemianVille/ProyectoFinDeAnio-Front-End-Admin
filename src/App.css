@@ -27,7 +27,7 @@
 }
 
 .logotipo {
-  width: 4rem;
+  width: 6rem;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -86,12 +86,10 @@
 
 .botonEdit {
   color: rgba(114, 221, 185, 1);
-  background-color: rgba(97, 238, 191, 0);
-  border-radius: 0;
+  background-color: transparent;
   border: none;
   position: absolute;
   right: 10px;
-  align-self: center;
 }
 
 /* User componenet */
@@ -191,16 +189,28 @@
 
 .confirmEdit {
   background-color: #000;
-  border-radius: 0;
   color: white;
   border: none;
   padding: 20px;
   transition: all 0.2s ease-in-out;
 }
 .confirmEdit:hover {
-  background-color: #131313;
-  border-radius: 0;
+  background-color: #333333;
+}
+
+.deleteBtn {
+  background-color: #ee6060;
   color: white;
   border: none;
   padding: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.deleteBtn:hover {
+  color: #cc4949;
+}
+
+.photoDiv{
+  height: 100px;
+  width: 100px;
 }
