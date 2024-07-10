@@ -7,6 +7,7 @@ import Users from "./pages/Users";
 import LoginAdmin from "./pages/LoginAdmin";
 import Error404 from "./components/Error404";
 import Orders from "./pages/Orders";
+import Admins from "./pages/Admins";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const App = () => {
     {
       path: "/admin/usuarios",
       element: <Users />,
+    },
+    {
+      path: "/admin/administradores",
+      element: <Admins />,
     },
     {
       path: "/admin/ordenes",

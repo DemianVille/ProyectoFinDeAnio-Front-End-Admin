@@ -8,21 +8,17 @@ export default function NavBar() {
   const dispatch = useDispatch();
 
   return (
-    <>
-      <Navbar expand="lg" fixed="top" className="navShadow">
-        <Container fluid>
-          <Nav>
-            <div className="d-flex justify-content-center align-items-end">
-              <button
-                className="logoutBtn nav-link mx-2 p-0 active text-center userNavBtn"
-                onClick={() => dispatch(deleteToken())}
-              >
-                Cerrar sesión <i class="bi bi-box-arrow-right"></i>
-              </button>
-            </div>
-          </Nav>
-        </Container>
-      </Navbar>
-    </>
+    <Navbar expand="lg" className="navShadow d-flex justify-content-end">
+      <Nav>
+        <div className="d-flex justify-content-center align-items-end">
+          <button
+            className="logoutBtn nav-link mx-2 p-0 active text-center userNavBtn"
+            onClick={() => dispatch(deleteToken())}
+          >
+            Cerrar sesión <i class="bi bi-box-arrow-right"></i>
+          </button>
+        </div>
+      </Nav>
+    </Navbar>
   );
 }

@@ -35,7 +35,7 @@ export default function Users() {
       }
     };
     getUsers();
-  }, []);
+  }, [users]);
 
   return (
     <>
@@ -62,7 +62,11 @@ export default function Users() {
                 </Row>
               ) : (
                 users.map((user) => {
-                  return <User key={user.id} id={user.id} />;
+                  return (
+                    <Row className="usersRow">
+                      <User key={user.id} id={user.id} />
+                    </Row>
+                  );
                 })
               )}
             </div>

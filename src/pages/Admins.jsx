@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import SideBar from "../components/SideBar";
 import User from "../components/User";
-import NavBar from "../components/NavBar";
+import SideBar from "../components/SideBar";
 
-export default function Dashboard() {
-  const [orders, setOrders] = useState([]);
+export default function Admins() {
+  const [users, setUsers] = useState([]);
   const token = useSelector((state) => state.token);
   const navigate = useNavigate();
 
@@ -19,7 +18,7 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
-    const getOrders = async () => {
+    const getUsers = async () => {
       try {
         const options = {
           method: "GET",
@@ -28,15 +27,16 @@ export default function Dashboard() {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await fetch(`http://localhost:3000/orders`, options);
-        const ordersList = await response.json();
-        setOrders(ordersList);
+        const response = await fetch(`http://localhost:3000/users`, options);
+        const userList = await response.json();
+        setUsers(userList);
       } catch (err) {
         console.error(err);
       }
     };
-    getOrders();
-  }, []);
+    getUsers();
+  }, [users]);
+
   return (
     <>
       <Row className="w-100">
@@ -44,26 +44,29 @@ export default function Dashboard() {
           <SideBar />
         </Col>
         <Col xs={9} lg={10}>
-          <NavBar />
-          <Container fluid>
+          <Container fluid className="mb-5">
             <div className="d-flex justify-content-between my-5">
-              <h3>Dashboard</h3>
+              <h3>Usuarios</h3>
+              <button className="botonAgregar px-3">Agregar usuario</button>
             </div>
             <div className="tables">
               <Row className="infoRow">
-                <Col xs={6}>Nombre</Col>
-                <Col xs={2}>Precio</Col>
-                <Col xs={2}>Stock</Col>
-                <Col xs={2}></Col>
+                <Col xs={2}>Id</Col>
+                <Col xs={4}>Nombre completo</Col>
+                <Col xs={4}>Email</Col>
               </Row>
-              {orders.length === 0 ? (
+              {users.length === 0 ? (
                 <Row className="">
                   <hr />
                   <p>Lista vacía</p>
                 </Row>
               ) : (
-                orders.map((order) => {
-                  return <User key={order.id} id={order.id} />;
+                users.map((user) => {
+                  return (
+                    <Row className="usersRow">
+                      <User key={user.id} id={user.id} />
+                    </Row>
+                  );
                 })
               )}
             </div>
