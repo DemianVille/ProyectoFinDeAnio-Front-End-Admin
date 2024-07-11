@@ -13,25 +13,22 @@ export default function SideBar() {
           <h2 className="mb-3 fontPlaywrite">Copéllia</h2>
         </div>
         <div className="d-flex flex-column">
-          <Link to={"/admin"} className="w-100">
+          <Link to={"/admin"} className="w-100 adminBtnsH">
             <button className="adminBtns my-3 p-2 w-100">Dashboard</button>
           </Link>
-          <Link to={"/admin/categorias"} className="w-100">
-            <button className="adminBtns my-3 p-2 w-100">Categorías</button>
-          </Link>
-          <Link to={"/admin/productos"} className="w-100">
+          <Link to={"/admin/productos"} className="w-100 adminBtnsH">
             <button className="adminBtns my-3 p-2 w-100">Productos</button>
           </Link>
-          <Link to={"/admin/usuarios"} className="w-100">
+          <Link to={"/admin/usuarios"} className="w-100 adminBtnsH">
             <button className="adminBtns my-3 p-2 w-100">Usuarios</button>
           </Link>
-          <Link to={"/admin/administradores"} className="w-100">
+          <Link to={"/admin/administradores"} className="w-100 adminBtnsH">
             <button className="adminBtns my-3 p-2 w-100">
               Administradores
             </button>
           </Link>
-          <Link to={"/admin/ordenes"} className="w-100">
-            <button className="adminBtns my-3 p-2 w-100">Órdenes</button>
+          <Link to={"/admin/ordenes"} className="w-100 adminBtnsH">
+            <button className="adminBtns my-3 p-2 w-100">Ordenes</button>
           </Link>
         </div>
       </div>
