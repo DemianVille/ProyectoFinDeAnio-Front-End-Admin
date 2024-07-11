@@ -16,6 +16,9 @@ export default function SideBar() {
           <Link to={"/admin"} className="w-100">
             <button className="adminBtns my-3 p-2 w-100">Dashboard</button>
           </Link>
+          <Link to={"/admin/categorias"} className="w-100">
+            <button className="adminBtns my-3 p-2 w-100">Categorías</button>
+          </Link>
           <Link to={"/admin/productos"} className="w-100">
             <button className="adminBtns my-3 p-2 w-100">Productos</button>
           </Link>
@@ -23,10 +26,12 @@ export default function SideBar() {
             <button className="adminBtns my-3 p-2 w-100">Usuarios</button>
           </Link>
           <Link to={"/admin/administradores"} className="w-100">
-            <button className="adminBtns my-3 p-2 w-100">Administradores</button>
+            <button className="adminBtns my-3 p-2 w-100">
+              Administradores
+            </button>
           </Link>
           <Link to={"/admin/ordenes"} className="w-100">
-            <button className="adminBtns my-3 p-2 w-100">Ordenes</button>
+            <button className="adminBtns my-3 p-2 w-100">Órdenes</button>
           </Link>
         </div>
       </div>

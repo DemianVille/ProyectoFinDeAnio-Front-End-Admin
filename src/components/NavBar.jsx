@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteToken } from "../redux/tokenReduser";
+import { deleteToken } from "../redux/tokenReducer";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
 export default function NavBar() {

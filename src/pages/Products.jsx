@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Product from "../components/Product";
 import SideBar from "../components/SideBar";
+import NavBar from "../components/NavBar";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -82,6 +83,7 @@ export default function Products() {
           <SideBar />
         </Col>
         <Col xs={9} lg={10}>
+        <NavBar />
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
               <h3>Productos</h3>
@@ -198,7 +200,6 @@ export default function Products() {
         </Modal.Body>
         <Modal.Footer>
           <div className="editBtn w-100 mb-3">
-            <Link to={"/admin/productos"}>
               <button
                 className="returnToDashboard"
                 onClick={() => {
@@ -207,7 +208,6 @@ export default function Products() {
               >
                 <i className="bi bi-caret-left"></i> Volver a productos
               </button>
-            </Link>
             <div>
               <button
                 className="confirmEdit mx-1"

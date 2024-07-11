@@ -8,6 +8,7 @@ import LoginAdmin from "./pages/LoginAdmin";
 import Error404 from "./components/Error404";
 import Orders from "./pages/Orders";
 import Admins from "./pages/Admins";
+import Categories from "./pages/Categories";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const App = () => {
     {
       path: "/admin/login",
       element: <LoginAdmin />,
+    },
+    {
+      path: "/admin/categorias",
+      element: <Categories />,
     },
     {
       path: "/admin/productos",

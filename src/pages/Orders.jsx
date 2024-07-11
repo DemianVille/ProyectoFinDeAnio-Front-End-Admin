@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import User from "../components/User";
+import NavBar from "../components/NavBar";
 
 export default function Orders() {
   const [orders, setOrders] = useState([]);
@@ -43,9 +44,10 @@ export default function Orders() {
           <SideBar />
         </Col>
         <Col xs={9} lg={10}>
+        <NavBar />
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
-              <h3>Dashboard</h3>
+              <h3>Órdenes</h3>
             </div>
             <div className="tables">
               <Row className="infoRow">

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, Modal, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 
-export default function user({ id }) {
+export default function User({ id }) {
   const [user, setUser] = useState({});
   const [show, setShow] = useState(false);
   const [firstname, setFirstname] = useState("");
@@ -104,7 +104,7 @@ export default function user({ id }) {
         <Modal.Header closeButton>
           <Modal.Title>
             <div className="d-flex align-items-center">
-              <p className="my-0 mx-3">{user.name}</p>
+              <p className="my-0 mx-3">{user.firstname}</p>
             </div>
           </Modal.Title>
         </Modal.Header>
@@ -186,16 +186,14 @@ export default function user({ id }) {
         </Modal.Body>
         <Modal.Footer>
           <div className="editBtn w-100 mb-3">
-            <Link to={"/admin/usuarios"}>
-              <button
-                className="returnToDashboard"
-                onClick={() => {
-                  handleClose();
-                }}
-              >
-                <i className="bi bi-caret-left"></i> Volver a usuarios
-              </button>
-            </Link>
+            <button
+              className="returnToDashboard"
+              onClick={() => {
+                handleClose();
+              }}
+            >
+              <i className="bi bi-caret-left"></i> Volver a usuarios
+            </button>
             <div>
               <button className="deleteBtn" onClick={deleteUser}>
                 Eliminar

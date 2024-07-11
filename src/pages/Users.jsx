@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import User from "../components/User";
 import SideBar from "../components/SideBar";
+import NavBar from "../components/NavBar";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -44,10 +45,10 @@ export default function Users() {
           <SideBar />
         </Col>
         <Col xs={9} lg={10}>
+          <NavBar />
           <Container fluid className="mb-5">
             <div className="d-flex justify-content-between my-5">
               <h3>Usuarios</h3>
-              <button className="botonAgregar px-3">Agregar usuario</button>
             </div>
             <div className="tables">
               <Row className="infoRow">

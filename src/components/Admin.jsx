@@ -1,30 +1,29 @@
 import React from "react";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Modal, Form } from "react-bootstrap";
+import { Row, Col, Modal, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Admin from "../components/Admin";
-import SideBar from "../components/SideBar";
-import NavBar from "../components/NavBar";
 
-export default function Admins() {
-  const [admins, setAdmins] = useState([]);
+export default function Admin({ id }) {
+  const [admin, setAdmin] = useState({});
   const [show, setShow] = useState(false);
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [deleteItem, setDeleteItem] = useState(null);
   const token = useSelector((state) => state.token);
-  const navigate = useNavigate();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const addAdmin = async () => {
+  const editAdmin = async () => {
     try {
       const options = {
-        method: "POST",
+        method: "PATCH",
         headers: {
           accept: "application/json",
           Authorization: `Bearer ${token}`,
@@ -33,24 +32,42 @@ export default function Admins() {
           firstname,
           lastname,
           email,
+          address,
+          phone,
           password,
         },
       };
 
-      const response = await axios(`http://localhost:3000/admins`, options);
+      const response = await axios(
+        `http://localhost:3000/admins/${id}`,
+        options
+      );
     } catch (err) {
       console.error(err);
     }
   };
+  const deleteAdmin = async () => {
+    try {
+      const options = {
+        method: "DELETE",
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
 
-  useEffect(() => {
-    if (!token) {
-      navigate("/admin/login");
+      const response = await axios(
+        `http://localhost:3000/admins/${id}`,
+        options
+      );
+      setDeleteItem(response.data.message);
+    } catch (err) {
+      handleClose();
     }
-  }, []);
+  };
 
   useEffect(() => {
-    const getAdmins = async () => {
+    const getAdmin = async () => {
       try {
         const options = {
           method: "GET",
@@ -59,56 +76,38 @@ export default function Admins() {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await fetch(`http://localhost:3000/admins`, options);
-        const adminList = await response.json();
-        setAdmins(adminList);
+        const response = await fetch(
+          `http://localhost:3000/admins/${id}`,
+          options
+        );
+        const adminObjet = await response.json();
+        setAdmin(adminObjet);
       } catch (err) {
         console.error(err);
       }
     };
-    getAdmins();
-  }, [admins]);
+    getAdmin();
+  }, [show, deleteItem]);
 
   return (
     <>
-      <Row className="w-100">
-        <Col xs={3} lg={2}>
-          <SideBar />
-        </Col>
-        <Col xs={9} lg={10}>
-          <NavBar />
-          <Container fluid className="mb-5">
-            <div className="d-flex justify-content-between my-5">
-              <h3>Administradores</h3>
-              <button className="botonAgregar px-3" onClick={handleShow}>
-                Agregar administrador
-              </button>
-            </div>
-            <div className="tables">
-              <Row className="infoRow">
-                <Col xs={2}>Id</Col>
-                <Col xs={4}>Nombre completo</Col>
-                <Col xs={4}>Email</Col>
-              </Row>
-              {admins.length === 0 ? (
-                <Row className="">
-                  <hr />
-                  <p>Lista vacía</p>
-                </Row>
-              ) : (
-                admins.map((admin) => {
-                  return (
-                    <Row className="usersRow">
-                      <Admin key={admin.id} id={admin.id} />
-                    </Row>
-                  );
-                })
-              )}
-            </div>
-          </Container>
-        </Col>
-      </Row>
+      <hr />
+      <Col xs={2}>{admin.id}</Col>
+      <Col xs={4}>{`${admin.firstname} ${admin.lastname}`}</Col>
+      <Col xs={4}>{admin.email}</Col>
+      <Col xs={2} className="d-flex align-items-center">
+        <button className="botonEdit" onClick={handleShow}>
+          Editar <i class="bi bi-pen"></i>
+        </button>
+      </Col>
       <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <div className="d-flex align-items-center">
+              <p className="my-0 mx-3">{admin.firstname}</p>
+            </div>
+          </Modal.Title>
+        </Modal.Header>
         <Modal.Body>
           <Form
             onSubmit={(event) => {
@@ -116,7 +115,7 @@ export default function Admins() {
             }}
           >
             <div className="text-center mb-3 mt-3">
-              <h2>Agregar administrador</h2>
+              <h2>Editar usuario</h2>
             </div>
             <Form.Group className="mb-2">
               <Form.Label htmlFor="name">Nombre</Form.Label>
@@ -124,6 +123,7 @@ export default function Admins() {
                 id="name"
                 type="text"
                 aria-label="First name"
+                placeholder={admin.firstname}
                 value={firstname}
                 onChange={(e) => setFirstname(e.target.value)}
               />
@@ -135,6 +135,7 @@ export default function Admins() {
                 type="text"
                 rows={4}
                 aria-label="Last name"
+                placeholder={admin.lastname}
                 value={lastname}
                 onChange={(e) => setLastname(e.target.value)}
               />
@@ -145,6 +146,7 @@ export default function Admins() {
                 id="address"
                 type="email"
                 aria-describedby="address"
+                placeholder={admin.email}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -163,23 +165,26 @@ export default function Admins() {
         </Modal.Body>
         <Modal.Footer>
           <div className="editBtn w-100 mb-3">
-            <button
-              className="returnToDashboard"
-              onClick={() => {
-                handleClose();
-              }}
-            >
-              <i className="bi bi-caret-left"></i> Volver a usuarios
-            </button>
+              <button
+                className="returnToDashboard"
+                onClick={() => {
+                  handleClose();
+                }}
+              >
+                <i className="bi bi-caret-left"></i> Volver a usuarios
+              </button>
             <div>
+              <button className="deleteBtn" onClick={deleteAdmin}>
+                Eliminar
+              </button>
               <button
                 className="confirmEdit mx-1"
                 onClick={() => {
                   handleClose();
-                  addAdmin();
+                  editAdmin();
                 }}
               >
-                Agregar
+                Editar
               </button>
             </div>
           </div>

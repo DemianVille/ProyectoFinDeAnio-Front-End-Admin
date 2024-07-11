@@ -198,16 +198,14 @@ export default function Product({ id }) {
         </Modal.Body>
         <Modal.Footer>
           <div className="editBtn w-100 mb-3">
-            <Link to={"/admin/productos"}>
-              <button
-                className="returnToDashboard"
-                onClick={() => {
-                  handleClose();
-                }}
-              >
-                <i className="bi bi-caret-left"></i> Volver a productos
-              </button>
-            </Link>
+            <button
+              className="returnToDashboard"
+              onClick={() => {
+                handleClose();
+              }}
+            >
+              <i className="bi bi-caret-left"></i> Volver a productos
+            </button>
             <div>
               <button className="deleteBtn" onClick={deleteProduct}>
                 Eliminar
