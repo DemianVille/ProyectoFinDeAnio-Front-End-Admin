@@ -48,7 +48,7 @@ export default function LoginAdmin() {
   return (
     <>
       <Container className="body">
-        <Row className="d-flex justify-content-center">
+        <Row className="d-flex flex-column align-items-center">
           <Col md={4}>
             <h2 className="text-center my-3">Ingresar como administrador</h2>
             <Form
@@ -96,6 +96,19 @@ export default function LoginAdmin() {
 
               <Link onClick={notify}>Olvidé mi contraseña</Link>
             </Form>
+          </Col>
+          <Col md={4} className="mt-5">
+            <p>
+              <b>Usuario de prueba</b>
+            </p>
+            <p>
+              Para simplificar el acceso a la aplicación, se proporciona el
+              siguiente usuario de administrador de prueba:
+            </p>
+            <ul>
+              <li>E-mail: admin@admin.uy</li>
+              <li>Contraseña: 123</li>
+            </ul>
           </Col>
         </Row>
       </Container>
