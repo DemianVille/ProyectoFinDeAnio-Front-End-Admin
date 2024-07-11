@@ -195,7 +195,13 @@ export default function User({ id }) {
               <i className="bi bi-caret-left"></i> Volver a usuarios
             </button>
             <div>
-              <button className="deleteBtn" onClick={deleteUser}>
+              <button
+                className="deleteBtn"
+                onClick={() => {
+                  handleClose();
+                  deleteUser();
+                }}
+              >
                 Eliminar
               </button>
               <button
