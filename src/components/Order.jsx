@@ -122,11 +122,11 @@ export default function Order({ id }) {
                 <Form.Label htmlFor="name">Estado</Form.Label>
                 <Form.Select onChange={(e) => setStatus(e.target.value)}>
                   <option>Elige una opción</option>
-                  <option value="pending">pending</option>
-                  <option value="rejected">rejected</option>
-                  <option value="processing">processing</option>
-                  <option value="shipped">shipped</option>
-                  <option value="delivered">delivered</option>
+                  <option value="pending">Pendiente</option>
+                  <option value="rejected">Rechazado</option>
+                  <option value="processing">Procesando</option>
+                  <option value="shipped">En envío</option>
+                  <option value="delivered">Entregado</option>
                 </Form.Select>
               </Form.Group>
             </Form>
