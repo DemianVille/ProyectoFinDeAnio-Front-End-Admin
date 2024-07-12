@@ -16,6 +16,9 @@ export default function SideBar() {
           <Link to={"/admin"} className="w-100 adminBtnsH">
             <button className="adminBtns my-3 p-2 w-100">Dashboard</button>
           </Link>
+          <Link to={"/admin/categorias"} className="w-100 adminBtnsH">
+            <button className="adminBtns my-3 p-2 w-100">Categorías</button>
+          </Link>
           <Link to={"/admin/productos"} className="w-100 adminBtnsH">
             <button className="adminBtns my-3 p-2 w-100">Productos</button>
           </Link>

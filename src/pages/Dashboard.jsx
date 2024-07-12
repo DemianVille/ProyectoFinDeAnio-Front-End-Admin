@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import User from "../components/User";
 import NavBar from "../components/NavBar";
+import Order from "../components/Order";
 
 export default function Dashboard() {
   const [orders, setOrders] = useState([]);
@@ -36,7 +37,7 @@ export default function Dashboard() {
       }
     };
     getOrders();
-  }, []);
+  }, [orders]);
   return (
     <>
       <Row className="w-100">
@@ -47,14 +48,14 @@ export default function Dashboard() {
           <NavBar />
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
-              <h3>Dashboard</h3>
+              <h3>Últimas 10 ordenes</h3>
             </div>
             <div className="tables">
               <Row className="infoRow">
-                <Col xs={6}>Nombre</Col>
-                <Col xs={2}>Precio</Col>
-                <Col xs={2}>Stock</Col>
-                <Col xs={2}></Col>
+                <Col xs={2}>Id</Col>
+                <Col xs={4}>Usuario</Col>
+                <Col xs={2}>Precio total</Col>
+                <Col xs={4}>Estado</Col>
               </Row>
               {orders.length === 0 ? (
                 <Row className="">
@@ -63,7 +64,11 @@ export default function Dashboard() {
                 </Row>
               ) : (
                 orders.map((order) => {
-                  return <User key={order.id} id={order.id} />;
+                  return (
+                    <Row className="productRow d-flex">
+                      <Order key={order.id} id={order.id} />
+                    </Row>
+                  );
                 })
               )}
             </div>

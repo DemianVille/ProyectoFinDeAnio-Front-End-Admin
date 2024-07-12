@@ -74,7 +74,7 @@ export default function Categories() {
           <SideBar />
         </Col>
         <Col xs={9} lg={10}>
-        <NavBar />
+          <NavBar />
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
               <h3>Categorías</h3>
@@ -84,9 +84,7 @@ export default function Categories() {
             </div>
             <div className="tables">
               <Row className="infoRow">
-                <Col xs={6}>Nombre</Col>
-                <Col xs={2}>Precio</Col>
-                <Col xs={2}>Stock</Col>
+                <div>Nombre</div>
               </Row>
               {categories.length === 0 ? (
                 <Row className="">
