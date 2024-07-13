@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Modal, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+const url = import.meta.env.VITE_URL;
 
 export default function Admin({ id }) {
   const [admin, setAdmin] = useState({});
@@ -38,10 +39,7 @@ export default function Admin({ id }) {
         },
       };
 
-      const response = await axios(
-        `http://localhost:3000/admins/${id}`,
-        options
-      );
+      const response = await axios(`${url}admins/${id}`, options);
     } catch (err) {
       console.error(err);
     }
@@ -56,10 +54,7 @@ export default function Admin({ id }) {
         },
       };
 
-      const response = await axios(
-        `http://localhost:3000/admins/${id}`,
-        options
-      );
+      const response = await axios(`${url}admins/${id}`, options);
       setDeleteItem(response.data.message);
     } catch (err) {
       handleClose();
@@ -76,10 +71,7 @@ export default function Admin({ id }) {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await fetch(
-          `http://localhost:3000/admins/${id}`,
-          options
-        );
+        const response = await fetch(`${url}admins/${id}`, options);
         const adminObjet = await response.json();
         setAdmin(adminObjet);
       } catch (err) {
@@ -165,14 +157,14 @@ export default function Admin({ id }) {
         </Modal.Body>
         <Modal.Footer>
           <div className="editBtn w-100 mb-3">
-              <button
-                className="returnToDashboard"
-                onClick={() => {
-                  handleClose();
-                }}
-              >
-                <i className="bi bi-caret-left"></i> Volver a usuarios
-              </button>
+            <button
+              className="returnToDashboard"
+              onClick={() => {
+                handleClose();
+              }}
+            >
+              <i className="bi bi-caret-left"></i> Volver a usuarios
+            </button>
             <div>
               <button className="deleteBtn" onClick={deleteAdmin}>
                 Eliminar

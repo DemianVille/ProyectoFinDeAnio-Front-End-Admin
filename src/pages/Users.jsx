@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import User from "../components/User";
 import SideBar from "../components/SideBar";
 import NavBar from "../components/NavBar";
+const url = import.meta.env.VITE_URL;
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -28,7 +29,7 @@ export default function Users() {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await fetch(`http://localhost:3000/users`, options);
+        const response = await fetch(`${url}users`, options);
         const userList = await response.json();
         setUsers(userList);
       } catch (err) {

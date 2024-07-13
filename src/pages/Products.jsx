@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Product from "../components/Product";
 import SideBar from "../components/SideBar";
 import NavBar from "../components/NavBar";
+const url = import.meta.env.VITE_URL;
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -44,7 +45,7 @@ export default function Products() {
         },
       };
 
-      const response = await axios(`http://localhost:3000/products`, options);
+      const response = await axios(`${url}products`, options);
     } catch (err) {
       console.error(err);
     }
@@ -66,7 +67,7 @@ export default function Products() {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await fetch(`http://localhost:3000/products`, options);
+        const response = await fetch(`${url}products`, options);
         const allProductsObject = await response.json();
         setProducts(allProductsObject);
       } catch (err) {
@@ -83,7 +84,7 @@ export default function Products() {
           <SideBar />
         </Col>
         <Col xs={9} lg={10}>
-        <NavBar />
+          <NavBar />
           <Container fluid>
             <div className="d-flex justify-content-between my-5">
               <h3>Productos</h3>
@@ -200,14 +201,14 @@ export default function Products() {
         </Modal.Body>
         <Modal.Footer>
           <div className="editBtn w-100 mb-3">
-              <button
-                className="returnToDashboard"
-                onClick={() => {
-                  handleClose();
-                }}
-              >
-                <i className="bi bi-caret-left"></i> Volver a productos
-              </button>
+            <button
+              className="returnToDashboard"
+              onClick={() => {
+                handleClose();
+              }}
+            >
+              <i className="bi bi-caret-left"></i> Volver a productos
+            </button>
             <div>
               <button
                 className="confirmEdit mx-1"

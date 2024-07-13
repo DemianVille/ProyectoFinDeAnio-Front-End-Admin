@@ -4,9 +4,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../components/SideBar";
-import User from "../components/User";
 import NavBar from "../components/NavBar";
 import Order from "../components/Order";
+const url = import.meta.env.VITE_URL;
 
 export default function Orders() {
   const [orders, setOrders] = useState([]);
@@ -29,7 +29,7 @@ export default function Orders() {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await fetch(`http://localhost:3000/orders`, options);
+        const response = await fetch(`${url}orders`, options);
         const ordersList = await response.json();
         setOrders(ordersList);
       } catch (err) {

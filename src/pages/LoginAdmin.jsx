@@ -3,9 +3,9 @@ import { ToastContainer, toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Container, Row, Col, Form } from "react-bootstrap";
-
 import { useSelector, useDispatch } from "react-redux";
 import { createToken } from "../redux/tokenReducer";
+const url = import.meta.env.VITE_URL;
 
 export default function LoginAdmin() {
   const [email, setEmail] = useState("");
@@ -32,7 +32,7 @@ export default function LoginAdmin() {
         },
       };
 
-      const response = await axios(`http://localhost:3000/tokens`, options);
+      const response = await axios(`${url}tokens`, options);
       setAdmin(response.data.admin);
       if (response.data.admin) {
         dispatch(createToken(response.data.token));
