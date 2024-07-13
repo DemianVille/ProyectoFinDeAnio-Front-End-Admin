@@ -14,7 +14,7 @@ export default function NavBar() {
       <Nav>
         <div className="d-flex justify-content-center align-items-end">
           <button
-            className="logoutBtn nav-link mx-2 p-0 active text-center userNavBtn"
+            className="nav-link mx-2 p-0 active text-center"
             onClick={() => {
               dispatch(deleteToken());
               navigate("/admin/login");
