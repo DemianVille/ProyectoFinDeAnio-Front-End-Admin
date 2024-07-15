@@ -5,6 +5,7 @@ import { Row, Col, Button, Modal, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+const url = import.meta.env.VITE_URL;
 
 export default function Product({ id }) {
   const token = useSelector((state) => state.token);
@@ -40,10 +41,7 @@ export default function Product({ id }) {
         },
       };
 
-      const response = await axios(
-        `http://localhost:3000/products/${id}`,
-        options
-      );
+      const response = await axios(`${url}products/${id}`, options);
     } catch (err) {
       console.error(err);
     }
@@ -58,10 +56,7 @@ export default function Product({ id }) {
         },
       };
 
-      const response = await axios(
-        `http://localhost:3000/products/${id}`,
-        options
-      );
+      const response = await axios(`${url}products/${id}`, options);
       setDeleteItem(response.data.message);
     } catch (err) {
       handleClose();
@@ -77,10 +72,7 @@ export default function Product({ id }) {
             accept: "application/json",
           },
         };
-        const response = await fetch(
-          `http://localhost:3000/products/${id}`,
-          options
-        );
+        const response = await fetch(`${url}products/${id}`, options);
         const productsObject = await response.json();
         setProduct(productsObject);
       } catch (err) {
@@ -88,7 +80,7 @@ export default function Product({ id }) {
       }
     };
     getProduct();
-  }, [show, deleteItem]);
+  }, [show, deleteItem, product.stok]);
 
   return (
     <>
