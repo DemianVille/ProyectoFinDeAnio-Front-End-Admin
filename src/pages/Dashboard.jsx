@@ -29,6 +29,7 @@ const url = import.meta.env.VITE_URL;
 
 export default function Dashboard() {
   const [orders, setOrders] = useState([]);
+  const [lastOrders, setLastOrders] = useState([]);
   const [users, setUsers] = useState([]);
   const token = useSelector((state) => state.token);
   const navigate = useNavigate();
@@ -51,7 +52,8 @@ export default function Dashboard() {
         };
         const response = await fetch(`${url}orders`, options);
         const ordersList = await response.json();
-        setOrders(ordersList.slice(-10));
+        setOrders(ordersList);
+        setLastOrders(ordersList.slice(-10));
       } catch (err) {
         console.error(err);
       }
@@ -190,7 +192,7 @@ export default function Dashboard() {
                   <p>Lista vacía</p>
                 </Row>
               ) : (
-                orders.map((order) => {
+                lastOrders.map((order) => {
                   return (
                     <Row className="productRow d-flex" key={order.id}>
                       <Order id={order.id} />
