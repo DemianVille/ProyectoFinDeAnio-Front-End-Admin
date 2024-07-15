@@ -56,7 +56,7 @@
 }
 
 .sideBar {
-  background-color: rgba(97, 238, 191, 0.849);
+  background-color: rgba(104, 240, 194, 0.849);
   height: 100%;
   width: 100%;
 }
@@ -189,6 +189,10 @@
   background-color: transparent;
   color: #000;
   border-radius: 0;
+}
+
+.chartRow{
+  min-height: 330px;
 }
 
 .confirmEdit {

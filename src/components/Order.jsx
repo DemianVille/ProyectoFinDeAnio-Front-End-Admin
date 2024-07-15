@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Row, Col, Modal, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+const url = import.meta.env.VITE_URL;
+
 export default function Order({ id }) {
   const [order, setOrder] = useState({});
   const [show, setShow] = useState(false);
@@ -26,10 +28,7 @@ export default function Order({ id }) {
         },
       };
 
-      const response = await axios(
-        `http://localhost:3000/orders/${id}`,
-        options
-      );
+      const response = await axios(`${url}orders/${id}`, options);
     } catch (err) {
       console.error(err);
     }
@@ -44,10 +43,7 @@ export default function Order({ id }) {
         },
       };
 
-      const response = await axios(
-        `http://localhost:3000/orders/${id}`,
-        options
-      );
+      const response = await axios(`${url}orders/${id}`, options);
       setDeleteItem(response.data.message);
     } catch (err) {
       handleClose();
@@ -64,10 +60,7 @@ export default function Order({ id }) {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await fetch(
-          `http://localhost:3000/orders/${id}`,
-          options
-        );
+        const response = await fetch(`${url}orders/${id}`, options);
         const orderObjet = await response.json();
         setOrder(orderObjet);
       } catch (err) {
@@ -85,6 +78,8 @@ export default function Order({ id }) {
         initialValue
       )
     : 0;
+
+  console.log(order);
 
   return (
     order.user && (
