@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Modal, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+const url = import.meta.env.VITE_URL;
 
 export default function User({ id }) {
   const [user, setUser] = useState({});
@@ -39,7 +40,7 @@ export default function User({ id }) {
       };
 
       const response = await axios(
-        `http://localhost:3000/users/${id}`,
+        `${url}users/${id}`,
         options
       );
     } catch (err) {
@@ -57,7 +58,7 @@ export default function User({ id }) {
       };
 
       const response = await axios(
-        `http://localhost:3000/users/${id}`,
+        `${url}users/${id}`,
         options
       );
       setDeleteItem(response.data.message);
@@ -77,7 +78,7 @@ export default function User({ id }) {
           },
         };
         const response = await fetch(
-          `http://localhost:3000/users/${id}`,
+          `${url}users/${id}`,
           options
         );
         const userObjet = await response.json();

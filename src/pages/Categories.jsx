@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Category from "../components/Category";
 import SideBar from "../components/SideBar";
 import NavBar from "../components/NavBar";
+const url = import.meta.env.VITE_URL;
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -32,7 +33,7 @@ export default function Categories() {
         },
       };
 
-      const response = await axios(`http://localhost:3000/categories`, options);
+      const response = await axios(`${url}categories`, options);
     } catch (err) {
       console.error(err);
     }
@@ -55,7 +56,7 @@ export default function Categories() {
           },
         };
         const response = await fetch(
-          `http://localhost:3000/categories`,
+          `${url}categories`,
           options
         );
         const allCategoriesObject = await response.json();

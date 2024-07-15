@@ -5,6 +5,7 @@ import { Row, Col, Button, Modal, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+const url = import.meta.env.VITE_URL;
 
 export default function Category({ id }) {
   const token = useSelector((state) => state.token);
@@ -31,7 +32,7 @@ export default function Category({ id }) {
       };
 
       const response = await axios(
-        `http://localhost:3000/categories/${id}`,
+        `${url}categories/${id}`,
         options
       );
     } catch (err) {
@@ -49,7 +50,7 @@ export default function Category({ id }) {
       };
 
       const response = await axios(
-        `http://localhost:3000/categories/${id}`,
+        `${url}categories/${id}`,
         options
       );
       setDeleteItem(response.data.message);
@@ -68,7 +69,7 @@ export default function Category({ id }) {
           },
         };
         const response = await fetch(
-          `http://localhost:3000/categories/${id}`,
+          `${url}categories/${id}`,
           options
         );
         const categoryObject = await response.json();
