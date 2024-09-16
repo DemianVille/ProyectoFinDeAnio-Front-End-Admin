@@ -9,7 +9,7 @@ export default function SideBar() {
         <div className="sideBarPosition">
           <div className="logoInfo d-flex flex-column">
             <div className="logotipo">
-              <Image className="logoImg" src="/src/assets/Logo.png" alt="" />
+              <Image className="logoImg" src="/public/img/Logo.png" alt="" />
             </div>
             <h2 className="mb-3 fontPlaywrite">Copéllia</h2>
           </div>
